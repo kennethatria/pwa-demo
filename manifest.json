@@ -1,0 +1,15 @@
+{
+    "short_name": "ITVFT",
+    "name": "Visit Tracker",
+    "icons": [
+      {
+        "src":"images/test.png",
+        "sizes": "96 × 96",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "",
+    "background_color": "#009688",
+    "theme_color": "#009688",
+    "display": "standalone"
+  }

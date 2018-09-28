@@ -1,0 +1,183 @@
+<!-- ./index.html -->
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css -->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> 
+      <!-- site css -->
+      <link type="text/css" rel="stylesheet" href="css/app.css">
+      <!-- offine theme and css  -->
+      <link rel="stylesheet" href="css/offline-theme-default.css">
+      <link rel="stylesheet" href="css/offline-language-english.css">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <link rel="manifest" href="manifest.json">
+    </head>
+
+    <body class="container">
+    <!-- nav bar -->
+
+    <!-- <nav> </nav> -->
+
+
+
+
+    <div class="container">
+                <!-- form heading -->
+                <div class="row">
+                    <div class="col s1 center-align"> 
+                        <!-- begining -->
+                            <ul id="slide-out" class="sidenav">
+                            <li><div class="user-view">
+                              <div class="background">
+                                <!-- <img src="images/office.jpg"> -->
+                              </div>
+                              <!-- <a href="#user"><img class="circle" src="images/yuna.jpg"></a> -->
+                              <a href="#name"><span class="white-text name"> test </span></a>
+                              <a href="#email"><span class="white-text email">test@mail.com</span></a>
+                            </div></li>
+                            <li><a href="#!"><i class="material-icons">cloud</i> Tickets </a></li>
+                            <!--<li><a href="#!"> Pending</a></li> -->
+                            <li><div class="divider"></div></li>
+                            <!--<li><a class="subheader"> Pending </a></li> -->
+                            <!-- tickets in IndexDB-->
+                            <ul class="collection with-header" id="ticket_list">
+                                    <!-- <li class="collection-header"><h5> Status </h5></li>
+                                    <li class="collection-item"><div> Sample <a href="#!" class="secondary-content"><i class="material-icons">close</i></a></div></li>
+                                    <li class="collection-item"><div> Sample <a href="#!" class="secondary-content"><i class="material-icons">done</i></a></div></li>
+
+                                    -->
+                            </ul>
+                            <!--
+                            <li><a class="waves-effect" href="#!">Resolved</a></li>
+                            <li><a class="waves-effect" href="#!">Waiting</a></li>
+                            -->
+                          </ul>
+                          <a href="#" id="page_menu" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                        </div>
+                    <!-- end -->
+                    <div class="col s10 center-align">
+                        <div class="card-panel teal lighten-2 center-align"> 
+                            <h6> IT Field Tracker </h6>
+                        </div>
+                    </div>
+                    <div class="col s1"></div>
+                </div>
+                <!-- start of form -->
+                <form id="ticket_form" method="POST">
+                    <div class="row  hide">
+                                <div class="col s2"></div>
+                                <div class="col s8">   
+                                        <input disabled value="anonymous" name="username" id="disabled" type="text" class="validate">
+                                        <label for="disabled">Disabled</label>
+                                </div>
+                                <div class="col s2"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col s2"></div>
+                        <div class="col s8">   
+                            <label> <h5> Select Subject </h5></label>
+                            <select class="browser-default" id="ticket_subjects" name="subject">
+                                <option value="" disabled selected>Choose your option</option>
+                            </select>
+                        </div>
+                        <div class="col s2"></div>
+                    </div>
+                    <div class="row">
+                            <div class="col s2"></div>
+                            <div class="col s8">   
+                                <label> <h5> Select Category </h5></label>
+                                <select class="browser-default" id="ticket_category" name="category">
+                                <option value="" disabled selected>Choose your option</option>
+                                </select>
+                            </div>
+                            <div class="col s2"></div>
+                        </div>
+                        <div class="row">
+                                <div class="col s2"></div>
+                                <div class="col s8">   
+                                    <label> <h5> Select Subcategory </h5></label>
+                                    <select class="browser-default" id="ticket_subcategory" name="subcategory">
+                                    <option value="" disabled selected>Choose your option</option>
+                                    </select>
+                                </div>
+                                <div class="col s2"></div>
+                        </div>
+                        <div class="row" id="form_ticket_options">
+                                <div class="col s2"></div>
+                                <div class="col s8">   
+                                    <label> <h5> Select Options</h5></label>
+                                    <select class="browser-default" id="ticket_subcategory" name="options">
+                                    <option value="" disabled selected>Choose your option</option>
+                                    </select>
+                                </div>
+                                <div class="col s2"></div>
+                        </div>
+                        <div class="row" id="form_ticket_description">
+                                <div class="col s2"></div>
+                                <div class="col s8">   
+                                    <label> <h5> Description </h5></label>
+                                        <div class="input-field col s12">
+                                                <i class="material-icons prefix">mode_edit</i>
+                                                    <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                                                <label for="icon_prefix2"> Description </label>
+                                        </div>
+                                    </select>
+                                </div>
+                                <div class="col s2"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col s2"></div>
+                            <div class="col s8">
+                                    <button class="btn waves-effect waves-light" type="submit" name="submit">Submit
+                                            <i class="material-icons right">send</i>
+                                    </button>
+                            </div>
+                            <div class="col s2"></div>
+                        </div>
+
+                </form>
+    </div>
+
+    <!-- floating action button -->
+    <!-- <div class="fixed-action-btn">
+            <a class="btn-floating btn-large red">
+              <i class="large material-icons">mode_edit</i>
+            </a>
+            <ul>
+              <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+              <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+              <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+              <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+            </ul>
+    </div>
+
+    -->
+
+      <!-- Scripts -->
+      <script type="text/javascript" src="js/jquery-2.2.4.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/offline.min.js"></script>
+
+      <!--<script>
+          (function(){
+                if ('serviceWorker' in navigator) {
+                    navigator.serviceWorker
+                    .register('service-worker.js')
+                    .then(function() { 
+                        console.log('Service Worker Registered'); 
+                                    });
+                    }    
+                    })()
+      </script> -->
+      <script type="text/javascript" src="js/app.js"></script>
+          <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!--<script src="js/popper.min.js"></script> -->
+    <!-- <script src="js/bootstrap.min.js"></script> -->
+      
+    </body>
+
+    </html>

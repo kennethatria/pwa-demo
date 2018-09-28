@@ -1,0 +1,70 @@
+<html>
+    <body>
+        <script>
+              /* */
+
+            window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+
+            let request = window.indexedDB.open('testDB',2),
+                db,
+                tx,
+                store,
+                index;
+
+            /*request.onupgradeneeded = function(e){
+                let db= request.result,
+                    store = db.createObjectStore('QuestionsStore',{
+                        keyPath:'qID'}),
+                    index = store.createIndex('questionText',
+                    'questionText',{unique:false});
+            } */
+            request.onerror = function(e){
+                console.log('there was an error:' + e.target.errorCode);
+            }
+            request.onsuccess = function(e){
+                db = request.result;
+                tx = db.transaction('QuestionsStore','readwrite');
+                store = tx.objectStore('QuestionsStore');
+                index = store.index('questionText')
+
+                db.onerror = function(e){
+                    console.log('ERROR' + e.target.errorCode);
+                    
+                }
+                // storing database 
+                
+                store.put({qID: 5, questionText: 'The sky is not blue',
+                            correctAnswer: true, studentAnswer:false, result: false
+                            });  
+                store.put({qID: 6, questionText: 'The grass is not green',
+                            correctAnswer: false, studentAnswer:true, result: true
+                            });  
+                
+                // retrieving data from database
+                
+                
+                /*let q1 = store.get(1);
+                let qs = index.get('The grass is green');
+
+                q1.onsuccess = function(e){
+                    console.log(q1.result);
+                    console.log(q1.result.questionText);
+                };
+                qs.onsuccess = function(e){
+                    console.log(qs.result);
+                    console.log(qs.result.questionText);
+                }
+                qs.onerror = function(e){
+                    console.log('ERROR' + e.target.errorCode)
+                }
+                */
+                
+                tx.oncomplete = function(){
+                    db.close();
+                }
+
+                
+            }
+        </script>
+    </body>
+</html>
